@@ -1,8 +1,17 @@
 @import '../theme/variables';
+@import '../theme/typography';
 
 body {
   background-color: $color-dark-gray;
-  font-family: 'Helvetica-Light', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Helvetica-Light', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4 , h5, h6 {
+  font-family: 'Open Sans Bold', 'Helvetica-Light', Helvetica, Arial, sans-serif;
+}
+
+p, span {
+  font-family: 'Open Sans Light', 'Helvetica-Light', Helvetica, Arial, sans-serif;
 }
 
 .App {

@@ -7,6 +7,27 @@ exports[`<UserCard /> renders 1`] = `
   <h4>
     User Card
   </h4>
+  <img
+    alt="Logo"
+    className="image"
+    role="presentation"
+    src="IMAGE_MOCK"
+  />
+  <img
+    alt="Logo"
+    className="image"
+    role="presentation"
+    src="IMAGE_MOCK"
+  />
+  <img
+    alt="Logo"
+    className="image"
+    role="presentation"
+    src="IMAGE_MOCK"
+  />
+  <p>
+    OLA
+  </p>
   <ul>
     <li>
       Name: 

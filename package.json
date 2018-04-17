@@ -49,6 +49,7 @@
     "flow": "better-npm-run flow",
     "flow:stop": "better-npm-run flow:stop",
     "test": "better-npm-run test",
+    "test:update": "better-npm-run test:update",
     "test:watch": "yarn test --watch",
     "clean:all": "yarn clean:build && yarn clean:test",
     "clean:build": "better-npm-run clean:build",
@@ -98,6 +99,12 @@
     },
     "test": {
       "command": "jest --coverage",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    "test:update": {
+      "command": "jest --coverage --updateSnapshot",
       "env": {
         "NODE_ENV": "test"
       }
