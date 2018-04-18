@@ -37,6 +37,7 @@ app.use(compression());
 // Use for http request debug (show errors only)
 app.use(morgan('dev', { skip: (req, res) => res.statusCode < 400 }));
 app.use(favicon(path.resolve(process.cwd(), 'public/favicon.ico')));
+app.use('/manifest.json', express.static('public/manifest.json'));
 
 if (!__DEV__) {
   app.use(express.static(path.resolve(process.cwd(), 'public')));

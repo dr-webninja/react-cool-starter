@@ -11,6 +11,16 @@ module.exports = {
       {
         name: 'description',
         content: 'The best react universal starter boilerplate in the world.'
+      },
+      {
+        name: 'theme-color',
+        content: '#2196f3'
+      }
+    ],
+    link: [
+      {
+        rel: 'manifest',
+        href: '/manifest.json'
       }
     ]
   }
