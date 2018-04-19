@@ -20,7 +20,7 @@ module.exports = {
     link: [
       {
         rel: 'manifest',
-        href: '/manifest.json'
+        href: '/assets/manifest.json'
       }
     ]
   }

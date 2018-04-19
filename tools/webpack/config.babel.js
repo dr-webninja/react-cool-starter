@@ -7,6 +7,7 @@ import CompressionPlugin from 'compression-webpack-plugin';
 import ImageminPlugin from 'imagemin-webpack-plugin';
 import FriendlyErrorsWebpackPlugin from 'friendly-errors-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDev = nodeEnv === 'development';
@@ -18,13 +19,35 @@ const eslint = false;
 // Enable build process terminated while there's a stylelint error
 const stylelint = false;
 
-// Setup the plugins for development/prodcution
+// Setup the plugins for development/production
 const getPlugins = () => {
   // Common
   const plugins = [
     new ManifestPlugin({
-      fileName: path.resolve(process.cwd(), 'public/webpack-assets.json'),
-      filter: file => file.isInitial
+      fileName: path.resolve(process.cwd(), 'public/webpack-assets.json')
+    }),
+    new WebpackPwaManifest({
+      manifest_version: 1,
+      name: 'My Progressive Web App',
+      fingerprints: true,
+      filename: 'manifest.json',
+      short_name: 'MyPWA',
+      description: 'My awesome Progressive Web App!',
+      theme_color: '#2196f3',
+      background_color: '#2196f3',
+      display: 'standalone',
+      start_url: '/',
+      scope: '/',
+      icons: [
+        {
+          src: path.resolve(
+            process.cwd(),
+            'src/app/assets/images/icons/icon.png'
+          ),
+          sizes: [72, 96, 128, 144, 192, 256, 384, 512],
+          type: 'image/png'
+        }
+      ]
     }),
     new MiniCssExtractPlugin({
       // Don't use hash in development, we need the persistent for "renderHtml.js"
