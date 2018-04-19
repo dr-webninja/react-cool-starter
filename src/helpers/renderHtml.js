@@ -10,7 +10,10 @@ export default (
 ): string => {
   // Use pre-defined assets in development. "main" is the default webpack generated name.
   const envAssets = __DEV__
-    ? { js: '/assets/main.js', css: '/assets/main.css' }
+    ? {
+        js: '/assets/main.js',
+        css: '/assets/main.css'
+      }
     : assets;
 
   const html = `
@@ -39,6 +42,16 @@ export default (
                 ? `<link href="${
                     envAssets[key]
                   }" media="screen, projection" rel="stylesheet" type="text/css">`
+                : ''
+          )
+          .join('')}
+        
+         <!-- Insert bundled manifest into <link> tag -->
+        ${Object.keys(envAssets)
+          .map(
+            key =>
+              key.startsWith('manifest')
+                ? `<link rel="manifest" href="${envAssets[key]}" />`
                 : ''
           )
           .join('')}

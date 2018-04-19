@@ -16,12 +16,6 @@ module.exports = {
         name: 'theme-color',
         content: '#2196f3'
       }
-    ],
-    link: [
-      {
-        rel: 'manifest',
-        href: '/assets/manifest.json'
-      }
     ]
   }
 };
