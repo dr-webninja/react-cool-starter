@@ -8,8 +8,23 @@ module.exports = {
   description: 'My awesome Progressive Web App!',
   theme_color: '#2196f3',
   background_color: '#2196f3',
+  dir: 'auto',
+  lang: 'en-US',
   inject: false,
   display: 'standalone',
+  orientation: 'any',
+  prefer_related_applications: false,
+  related_applications: [
+    {
+      platform: 'play',
+      url: 'https://play.google.com/store/apps/details?id=com.example.app1',
+      id: 'com.example.app1'
+    },
+    {
+      platform: 'itunes',
+      url: 'https://itunes.apple.com/app/example-app1/id123456789'
+    }
+  ],
   start_url: '/',
   scope: '/',
   icons: [

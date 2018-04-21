@@ -10,7 +10,6 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackPwaManifest from 'webpack-pwa-manifest';
 import manifest from '../../manifest';
 
-
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDev = nodeEnv === 'development';
 
@@ -25,7 +24,6 @@ const stylelint = false;
 const getPlugins = () => {
   // Common
   const plugins = [
-    new WebpackPwaManifest(manifest),
     new ManifestPlugin({
       fileName: path.resolve(process.cwd(), 'public/webpack-assets.json'),
       filter: file => file.isInitial || file.name.startsWith('manifest')
@@ -69,6 +67,7 @@ const getPlugins = () => {
       new ImageminPlugin({
         pngquant: { quality: '95-100' }
       }),
+      new WebpackPwaManifest(manifest),
       // Visualize all of the webpack bundles
       // Check "https://github.com/webpack-contrib/webpack-bundle-analyzer#options-for-plugin"
       // for more configurations
