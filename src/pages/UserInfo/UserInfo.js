@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
+import cx from 'classnames';
 
 import * as usersAction from '../../actions/user';
 import type {
@@ -47,8 +48,19 @@ export class UserInfo extends PureComponent<Props> {
 
   render() {
     return (
-      <div className={styles.UserInfo}>
-        <Helmet title="User Info" />
+      <div className={cx(styles.UserInfo, 'container')}>
+        <Helmet
+          title="User Info"
+          style={[
+            {
+              cssText: `
+            .container {
+                background-color: gray;
+            }
+        `
+            }
+          ]}
+        />
         {this.renderUserCard()}
       </div>
     );
