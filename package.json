@@ -376,7 +376,7 @@
     "stylelint-scss": "^3.0.0",
     "stylelint-webpack-plugin": "^0.10.4",
     "url-loader": "^1.0.1",
-    "webpack": "^4.5.0",
+    "webpack": "^4.6.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.14",
     "webpack-dev-middleware": "^3.1.2",
