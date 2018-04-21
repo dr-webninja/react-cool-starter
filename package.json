@@ -41,6 +41,8 @@
     "start:dashboard": "webpack-dashboard yarn start",
     "start:production": "yarn build && yarn start:prod",
     "start:prod": "better-npm-run start:prod",
+    "start:production:docker": "yarn build && yarn start:prod:docker",
+    "start:prod:docker": "better-npm-run start:prod:docker",
     "build": "yarn clean:build && better-npm-run build",
     "analyze": "yarn clean:build && better-npm-run analyze",
     "lint": "yarn lint:js && yarn lint:style",
@@ -54,7 +56,9 @@
     "clean:all": "yarn clean:build && yarn clean:test",
     "clean:build": "better-npm-run clean:build",
     "clean:test": "better-npm-run clean:test",
-    "coveralls": "better-npm-run coveralls && yarn clean:test"
+    "coveralls": "better-npm-run coveralls && yarn clean:test",
+    "docker:image": "docker build -t mypwa .",
+    "docker:run": "docker run -p 4000:80 mypwa"
   },
   "betterScripts": {
     "start": {
@@ -71,6 +75,17 @@
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
         "PORT": 8080
+      }
+    },
+    "start:prod:docker": {
+      "command": "node ./index.js",
+      "env": {
+        "NODE_PATH": "./src",
+        "NODE_HOST": "0.0.0.0",
+        "NODE_ENV": "production",
+        "SUPRESS_BROWSER_LAUNCH": true,
+        "DOCKER": true,
+        "PORT": 80
       }
     },
     "build": {
